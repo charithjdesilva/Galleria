@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Title from "./Title";
 import "./styles/stylesheet.css";
 import Gallery from "./Gallery";
+import AddPhoto from "./AddPhoto";
+import { Route,Routes } from "react-router-dom";
 
 class Main extends Component {
     //Constructor will initalize the Component without data, for setting data we get from DB we use componentDidMount()
@@ -9,8 +11,10 @@ class Main extends Component {
     super();
     this.state = {
       posts: [],
+      screen:'photos'    // photos=Gallery , addPhoto=AddScreen
     };
     this.removePhoto = this.removePhoto.bind(this);     //bind method is used because 'this' will no longer have a scope after passed down to sub components
+    this.navigate = this.navigate.bind(this);         //bind method is used because 'this' will no longer have a scope after passed down to sub components
   }
 
   removePhoto(postRemoved){
@@ -26,14 +30,27 @@ class Main extends Component {
     this.setState({posts: fetchedData});
   }
 
+  navigate(){
+    this.setState({screen: "addPhoto"});    //upon invoke of method navigate() the state of screen changes to 'addPhoto'
+  }
+
   //After constructor initialized the component render() runs
   //render runs every time state of the component is changed
   render() {
     return (
-      <div>
-        <Title title={"Galleria"} />
-        <Gallery posts={this.state.posts} onRemovePhoto={this.removePhoto} />
-      </div>
+      <Routes>
+        <Route exact path="/" render={() => (
+          <div>
+            <Title title={"Galleria"} />
+            <Gallery posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} />
+          </div>
+        )} />
+        <Route path="/AddPhoto" render={() => (
+          <div>
+            <AddPhoto />
+          </div>
+        )} />
+      </Routes>
     );
   }
 }

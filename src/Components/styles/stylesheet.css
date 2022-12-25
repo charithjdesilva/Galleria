@@ -25,6 +25,7 @@ p{
 /*Photo*/
 .figure-container{
     border: 1px solid #d3d3d3;
+    border-radius: 10px;
     flex-basis: calc(30% - 0.45rem);
     padding: 1.2rem;
     flex-grow: 1;
@@ -43,6 +44,7 @@ p{
 
 .remove-button{
     color: rgb(218, 78, 44);
+    background-color: #fff;
     font-family: 'Lato', sans-serif;
     flex-basis: 40%;
     line-height: 1.2rem;
@@ -52,5 +54,14 @@ p{
 
 .remove-button:hover{
     border: 2px solid #ff4343;
-    background-color: #f8e5e5;
+    background-color: #fff;
+}
+
+.addIcon{
+    margin: 20px auto;
+    display: block;
+    padding: 40px;
+    background: url("../../images/add.svg") center no-repeat;
+    background-size: contain;
+    border: none;
 }
