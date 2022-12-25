@@ -14,7 +14,6 @@ class Main extends Component {
       screen:'photos'    // photos=Gallery , addPhoto=AddScreen
     };
     this.removePhoto = this.removePhoto.bind(this);     //bind method is used because 'this' will no longer have a scope after passed down to sub components
-    this.navigate = this.navigate.bind(this);         //bind method is used because 'this' will no longer have a scope after passed down to sub components
   }
 
   removePhoto(postRemoved){
@@ -30,26 +29,18 @@ class Main extends Component {
     this.setState({posts: fetchedData});
   }
 
-  navigate(){
-    this.setState({screen: "addPhoto"});    //upon invoke of method navigate() the state of screen changes to 'addPhoto'
-  }
-
   //After constructor initialized the component render() runs
   //render runs every time state of the component is changed
   render() {
     return (
       <Routes>
-        <Route exact path="/" render={() => (
+        <Route exact path="/" element={
           <div>
             <Title title={"Galleria"} />
             <Gallery posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} />
           </div>
-        )} />
-        <Route path="/AddPhoto" render={() => (
-          <div>
-            <AddPhoto />
-          </div>
-        )} />
+        } />
+        <Route path="/AddPhoto" element={<AddPhoto />} />
       </Routes>
     );
   }
