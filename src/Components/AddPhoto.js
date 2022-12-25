@@ -2,7 +2,18 @@ import { Component } from "react";
 
 class AddPhoto extends Component{
     render(){
-        return <h1>Add a new photo here!</h1>
+        return (
+        <div>
+            <h1>Galleria</h1>
+            <form>
+                <div className="form-layout">
+                    <input type="text" placeholder="link" />
+                    <input type="text" placeholder="description" />
+                    <button>Post</button>
+                </div>
+            </form>
+        </div>
+        );
     }
 }
 
