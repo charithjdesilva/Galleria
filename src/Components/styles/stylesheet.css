@@ -50,9 +50,12 @@ p{
     line-height: 1.2rem;
     border: 2px solid #ff8787;
     padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .remove-button:hover{
+    color: #ff4343;
     border: 2px solid #ff4343;
     background-color: #fff;
 }
@@ -64,4 +67,42 @@ p{
     background: url("../../images/add.svg") center no-repeat;
     background-size: contain;
     border: none;
+}
+
+/* AddPhoto page */
+.form-layout{
+    margin: 0 auto;
+    max-width: 380px;
+    padding: 48px;
+    text-align: center;
+}
+
+.form-layout input{
+    width: 100%;
+    font-family: sans-serif;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 0 0 15px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    background-color: #ebebeb;
+}
+
+.form-layout button{
+    color: #fff;
+    background-color: #444444;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    line-height: 1.2rem;
+    width: 100%;
+    border: 2px solid #444444;
+    padding: 6px 55px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-layout button:hover{
+    border: 2px solid #000000;
+    background-color: #000000;
 }
