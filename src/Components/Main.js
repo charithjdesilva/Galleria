@@ -40,9 +40,19 @@ class Main extends Component {
             <Gallery posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} />
           </div>
         } />
-        <Route path="/AddPhoto" element={<AddPhoto />} />
+        <Route path="/AddPhoto" element={<AddPhoto onAddPhoto={(addedPosts) => {
+          this.addPhoto(addedPosts);
+          console.log(this.props.history);
+          // this.props.history.push("/");
+        }} />} />
       </Routes>
     );
+  }
+
+  addPhoto(postSubmitted){
+    this.setState(state =>({
+      posts: state.posts.concat([postSubmitted])
+    }))
   }
 }
 

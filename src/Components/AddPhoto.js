@@ -1,14 +1,39 @@
 import { Component } from "react";
 
 class AddPhoto extends Component{
+
+    constructor(){
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(event){
+        event.preventDefault();     //Prevent refreshing of the web page
+        
+        //assigning values of the form input to variables
+        const imgLink = event.target.imgLink.value;
+        const imgDescription = event.target.imgDescription.value;
+
+        const post = {
+            id: 0,
+            description: imgDescription,
+            imageLink: imgLink
+        };
+
+        // run only if link and description are not null
+        if(imgLink && imgDescription){
+            this.props.onAddPhoto(post);
+        }
+    }
+
     render(){
         return (
         <div>
             <h1>Galleria</h1>
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <div className="form-layout">
-                    <input type="text" placeholder="link" />
-                    <input type="text" placeholder="description" />
+                    <input type="text" placeholder="link" name="imgLink" />
+                    <input type="text" placeholder="description" name="imgDescription"  />
                     <button>Post</button>
                 </div>
             </form>
