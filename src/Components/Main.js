@@ -4,6 +4,7 @@ import "./styles/stylesheet.css";
 import Gallery from "./Gallery";
 import AddPhoto from "./AddPhoto";
 import { Route,Routes } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 class Main extends Component {
     //Constructor will initalize the Component without data, for setting data we get from DB we use componentDidMount()
@@ -42,8 +43,8 @@ class Main extends Component {
         } />
         <Route path="/AddPhoto" element={<AddPhoto onAddPhoto={(addedPosts) => {
           this.addPhoto(addedPosts);
-          console.log(this.props.history);
-          // this.props.history.push("/");
+          // console.log(this.props.history);
+          this.props.navigate("/");
         }} />} />
       </Routes>
     );
@@ -79,4 +80,10 @@ const fetchDataFromDB = () => {
     }];
 };
 
-export default Main;
+const withLocation = Component => props => {
+  const navigate = useNavigate();
+
+  return <Component {...props} navigate={navigate} />;
+};
+
+export default withLocation(Main);

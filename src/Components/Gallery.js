@@ -9,7 +9,8 @@ class Gallery extends Component{
             <Link className="addIcon" to="/AddPhoto"></Link> {/* control content of the web-page with the url */}
             {/* <button className="addIcon" onClick={this.props.onNavigate}></button> */}
             <div className="photo-grid">
-                {this.props.posts.map((post,index) => <Photo key={index} post={post} onRemovePhoto={this.props.onRemovePhoto} />)}
+                {/* do a Numerical sort of descending order first, then map */}
+                {this.props.posts.sort((x,y) => (y.id-x.id)).map((post,index) => <Photo key={post.id} post={post} onRemovePhoto={this.props.onRemovePhoto} />)}
             </div>
         </div>;
     }

@@ -15,7 +15,7 @@ class AddPhoto extends Component{
         const imgDescription = event.target.imgDescription.value;
 
         const post = {
-            id: 0,
+            id: Number(new Date()), //assign timestamp as Id
             description: imgDescription,
             imageLink: imgLink
         };
