@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Main from "./Main";
 import { bindActionCreators } from "redux";
-import { removePost } from "../redux/actions";
+import * as actions from "../redux/actions";
 import { useNavigate } from 'react-router-dom';
 
 function mapStateToProps(state){
@@ -11,14 +11,14 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({removePost}, dispatch);
+    return bindActionCreators(actions, dispatch);
 }
 
 const withLocation = Component => props => {
     const navigate = useNavigate();
   
     return <Component {...props} navigate={navigate} />;
-  };
+};
   
 
 const App = withLocation(connect(mapStateToProps, mapDispatchToProps)(Main))

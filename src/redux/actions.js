@@ -7,3 +7,9 @@ export const removePost = (index) => {
 }
 
 // add post
+export const addPost = (post) => {
+    return{
+        type: 'ADD_POST',
+        post: post
+    }
+}

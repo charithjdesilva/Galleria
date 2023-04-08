@@ -3,7 +3,7 @@ import Title from "./Title";
 import "./styles/stylesheet.css";
 import Gallery from "./Gallery";
 import AddPhoto from "./AddPhoto";
-import { Route,Routes } from "react-router-dom";
+import { Link,Route,Routes } from "react-router-dom";
 
 
 class Main extends Component {
@@ -17,18 +17,17 @@ class Main extends Component {
   render() {
     console.log(this.props);
     return (
-      <Routes>
-        <Route exact path="/" element={
-          <div>
-            <Title title={"Galleria"} />
-            <Gallery {...this.props} />
-          </div>
-        } />
-        <Route path="/AddPhoto" element={<AddPhoto onAddPhoto={(addedPosts) => {
-          // console.log(this.props.history);
-          this.props.navigate("/");
-        }} />} />
-      </Routes>
+      <div>
+        <h1><Link to='/'>Galleria</Link></h1>
+        <Routes>
+          <Route exact path="/" element={
+            <div>
+              <Gallery {...this.props} />
+            </div>
+          } />
+          <Route path="/AddPhoto" element={<AddPhoto {...this.props} onNavigate={this.props.navigate} />} />
+        </Routes>
+      </div>
     );
   }
 }

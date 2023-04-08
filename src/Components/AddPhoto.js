@@ -22,14 +22,14 @@ class AddPhoto extends Component{
 
         // run only if link and description are not null
         if(imgLink && imgDescription){
-            
+            this.props.addPost(post);
+            this.props.navigate('/');
         }
     }
 
     render(){
         return (
         <div>
-            <h1>Galleria</h1>
             <form onSubmit={this.handleSubmit}>
                 <div className="form-layout">
                     <input type="text" placeholder="link" name="imgLink" />
