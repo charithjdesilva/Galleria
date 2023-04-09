@@ -3,8 +3,8 @@ import Title from "./Title";
 import "./styles/stylesheet.css";
 import Gallery from "./Gallery";
 import AddPhoto from "./AddPhoto";
-import { Link,Route,Routes } from "react-router-dom";
-
+import { Link,Route,Routes,useParams } from "react-router-dom";
+import SinglePost from "./SinglePost";
 
 class Main extends Component {
     //Constructor will initalize the Component without data, for setting data we get from DB we use componentDidMount()
@@ -15,7 +15,7 @@ class Main extends Component {
   //After constructor initialized the component render() runs
   //render runs every time state of the component is changed
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         <h1><Link to='/'>Galleria</Link></h1>
@@ -25,7 +25,12 @@ class Main extends Component {
               <Gallery {...this.props} />
             </div>
           } />
+          
           <Route path="/AddPhoto" element={<AddPhoto {...this.props} onNavigate={this.props.navigate} />} />
+          
+          {/* will return a router for clicked Post */}
+          <Route path="/single/:id" element={
+          <SinglePost {...this.props} />} />
         </Routes>
       </div>
     );
