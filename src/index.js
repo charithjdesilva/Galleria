@@ -14,7 +14,7 @@ const store = configureStore({
         immutableCheck: false,
         serializableCheck: false,
    })
-});
+},window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const root = createRoot(document.getElementById('root'));
 
