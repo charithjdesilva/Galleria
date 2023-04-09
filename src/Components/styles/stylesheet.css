@@ -74,7 +74,7 @@ p{
     border: none;
 }
 
-/* AddPhoto page */
+/* AddPhoto,Comment page */
 .form-layout{
     margin: 0 auto;
     max-width: 380px;
@@ -110,4 +110,53 @@ p{
 .form-layout button:hover{
     border: 2px solid #000000;
     background-color: #000000;
+}
+
+/* comment photo page */
+
+.comment{
+    width: 100%
+}
+.comment p {
+    border-bottom: 1px solid #d3d3d3;
+    padding: 0.5rem 0;
+}
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    border: 0;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #d3d3d3;
+    outline: none;
+    resize: vertical;
+}
+
+.speech-bubble {
+    background: url("https://d30y9cdsu7xlg0.cloudfront.net/png/51904-200.png") center no-repeat;
+    background-size: contain;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
+    border: none;
+    position: relative;
+}
+
+
+.comment-count {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black
+}
+
+.loader {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    font-size: 28pt;
 }
