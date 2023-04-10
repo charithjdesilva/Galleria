@@ -17,12 +17,16 @@ class SinglePost extends Component{
           if(this.props.loading === true){
             return <div className="loader"> ...loading </div>
           }
-          else //or, refreshed
+          else if(post) //or there is a post
           { 
             return <div className="single-photo">
               <Photo post={post} {...this.props} index={index} />
               <Comments startAddingComment={this.props.startAddingComment} comments={comments} post_id={id} />
             </div>;
+          }
+          else  // if post is undefined
+          {
+            return <div className="loader"> ...no post found </div>
           }
     }
 }

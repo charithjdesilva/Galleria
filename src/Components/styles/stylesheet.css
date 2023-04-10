@@ -7,6 +7,7 @@ h1 {
   font-size: 5.5rem;
   font-weight: 700;
   margin-top: 1rem;
+  margin-bottom: 20px;
 }
 
 h1 a{
@@ -67,7 +68,7 @@ p{
 }
 
 .addIcon{
-    margin: 20px auto;
+    margin: 0 auto 20px;
     display: block;
     padding: 40px;
     background: url("../../images/add.svg") center no-repeat;
