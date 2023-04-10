@@ -7,7 +7,7 @@ import rootReducer from "./redux/reducer.js";   // root reducer defines how data
 import { Provider } from "react-redux";
 import App from "./Components/App";
 import thunk from "redux-thunk";
-import {database} from "./database/config.js";
+import {database} from "./database/config";
 
 // root reducer is combination of many reducers which are used by components to update the state of the store
 const store = configureStore({
