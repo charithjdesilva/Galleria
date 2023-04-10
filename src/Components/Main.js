@@ -7,9 +7,14 @@ import { Link,Route,Routes,useParams } from "react-router-dom";
 import SinglePost from "./SinglePost";
 
 class Main extends Component {
-    //Constructor will initalize the Component without data, for setting data we get from DB we use componentDidMount()
+  //Constructor will initalize the Component without data, for setting data we get from DB we use componentDidMount()
   constructor() {
     super();
+  }
+
+  componentDidMount(){
+    // load posts from database, uses an action, then updates the state by using the reducer
+    this.props.startLoadingPost();
   }
 
   //After constructor initialized the component render() runs

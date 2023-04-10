@@ -1,3 +1,4 @@
+import { func } from "prop-types";
 import {database} from "../database/config"
 
 // Get a reference to a specific location in the database
@@ -6,6 +7,7 @@ import {database} from "../database/config"
 // add post to database
 export function startAddingPost(post){
     return (dispatch) => {
+        // .then() invokes as soon as function chainned it suceed, which is update()
         return database.ref('posts').update({ [post.id]: post }).then(() => {
             dispatch(addPost(post));
         }).catch((error) => {
@@ -14,6 +16,28 @@ export function startAddingPost(post){
     }
 }
 
+// load posts from firebase database
+export function startLoadingPost(){
+    return (dispatch) => {
+         // .on() is realtime (for every change in db it invoke the function) // .once() is happening once
+        return database.ref('posts').once('value').then((snapshot) => {
+            let posts = []
+            snapshot.forEach((childSnapshot) => {
+                posts.push(childSnapshot.val())
+            })
+            dispatch(loadPost(posts))
+        })
+    }
+}
+
+// remove post from firebase database
+export function startRemovingPost(index, id){
+    return (dispatch) => {
+        return database.ref(`posts/${id}`).remove().then(() => {
+            dispatch(removePost(index))
+        })
+    }
+}
 
 // remove post
 export const removePost = (index) => {
@@ -37,5 +61,13 @@ export const addComment = (comment, postId) => {
         type: 'ADD_COMMENT',
         comment: comment,
         postId : postId
+    }
+}
+
+// load post
+export const loadPost = (posts) => {
+    return{
+        type: 'LOAD_POSTS',
+        posts: posts
     }
 }

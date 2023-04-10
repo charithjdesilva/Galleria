@@ -12,7 +12,7 @@ class Photo extends Component{
             <figcaption><p>{post.description}</p></figcaption>
             <div className="button-container">
                 <button className="remove-button" onClick={() => {
-                    this.props.removePost(this.props.index)
+                    this.props.startRemovingPost(this.props.index, post.id)
                     this.props.navigate('/');
                 }}>Remove</button>
                 <Link className="comment-button" to={`/single/${post.id}`}>

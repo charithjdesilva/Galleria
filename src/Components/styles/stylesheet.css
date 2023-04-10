@@ -52,7 +52,7 @@ p{
     color: rgb(218, 78, 44);
     background-color: #fff;
     font-family: 'Lato', sans-serif;
-    flex-basis: 40%;
+    flex-basis: 50%;
     line-height: 1.2rem;
     border: 2px solid #ff8787;
     padding: 5px;
@@ -168,7 +168,7 @@ p{
     color: rgb(138, 138, 138);
     background-color: #fff;
     font-family: 'Lato', sans-serif;
-    flex-basis: 40%;
+    flex-basis: 50%;
     line-height: 1.2rem;
     border: 2px solid rgb(138, 138, 138);
     padding: 5px;
