@@ -45,6 +45,7 @@ p{
 .button-container{
     display: flex;
     justify-content: center;
+    gap: 0.75rem;
 }
 
 .remove-button{
@@ -117,9 +118,9 @@ p{
     border: 1px solid #d3d3d3;
     border-radius: 10px;
     flex-basis: calc(100% - 0.45rem);
-    padding: 1.2rem;
+    padding: 1.2rem 1.2rem 1.2rem 1.2rem; 
     flex-grow: 1;
-    margin: 0 1.2rem 1.2rem 1.2rem;
+    margin: 0 1.2rem auto 1.2rem;
 }
 
 .figure .single-photo {
@@ -163,6 +164,25 @@ p{
 }
 
 /* comment section */
+.comment-button{
+    color: rgb(138, 138, 138);
+    background-color: #fff;
+    font-family: 'Lato', sans-serif;
+    flex-basis: 40%;
+    line-height: 1.2rem;
+    border: 2px solid rgb(138, 138, 138);
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.comment-button:hover{
+    color: #000000;
+    border: 2px solid #000000;
+    background-color: #fff;
+}
+
 .comment{
     width: 100%
 }
