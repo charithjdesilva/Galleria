@@ -1,6 +1,7 @@
 import {Component} from "react";
 import { useParams } from "react-router-dom";
 import Photo from "./Photo";
+import Comments from "./Comments";
 
 class SinglePost extends Component{
     render(){
@@ -13,6 +14,7 @@ class SinglePost extends Component{
           
           return <div className="single-photo">
             <Photo post={post} />
+            <Comments />
           </div>;
     }
 }
