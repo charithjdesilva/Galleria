@@ -1,4 +1,3 @@
-import { func } from "prop-types";
 import {database} from "../database/config"
 
 // Get a reference to a specific location in the database
@@ -26,7 +25,9 @@ export function startLoadingPost(){
                 posts.push(childSnapshot.val())
             })
             dispatch(loadPost(posts))
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 }
 
@@ -35,7 +36,9 @@ export function startRemovingPost(index, id){
     return (dispatch) => {
         return database.ref(`posts/${id}`).remove().then(() => {
             dispatch(removePost(index))
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 }
 
@@ -55,6 +58,42 @@ export const addPost = (post) => {
     }
 }
 
+// load post
+export const loadPost = (posts) => {
+    return{
+        type: 'LOAD_POSTS',
+        posts: posts
+    }
+}
+
+// adding comments to firebase databse
+export function startAddingComment(comment, postId){
+    return (dispatch) => {
+        return database.ref(`comments/${postId}`).push(comment).then(
+            () => {
+                dispatch(addComment(comment, postId))
+            }
+        ).catch((error) => {
+            console.log(error);
+        });
+    }
+}
+
+// loading comments from firebase databse
+export function startLoadingComments(){
+    return (dispatch) => {
+        return database.ref('comments').once('value').then((snapshot) => {
+            let comments = {}
+            snapshot.forEach((childSnapshot) => {
+                comments[childSnapshot.key] = Object.values(childSnapshot.val())  // we only need the value of the comment, not the commentsId
+            })
+            dispatch(loadComments(comments))
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+}
+
 // add comment
 export const addComment = (comment, postId) => {
     return{
@@ -64,10 +103,10 @@ export const addComment = (comment, postId) => {
     }
 }
 
-// load post
-export const loadPost = (posts) => {
+// load comments
+export const loadComments = (comments) => {
     return{
-        type: 'LOAD_POSTS',
-        posts: posts
+        type: 'LOAD_COMMENTS',
+        comments: comments
     }
 }

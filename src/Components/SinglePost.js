@@ -13,10 +13,17 @@ class SinglePost extends Component{
           const index = posts.findIndex((post) => (post.id === id));
           const comments = this.props.comments[id] || []    // if comments is undefined, set comments to empty array
           
-          return <div className="single-photo">
-            <Photo post={post} {...this.props} index={index} />
-            <Comments addComment={this.props.addComment} comments={comments} post_id={id} />
-          </div>;
+          // if page is loading at the start
+          if(this.props.loading === true){
+            return <div className="loader"> ...loading </div>
+          }
+          else //or, refreshed
+          { 
+            return <div className="single-photo">
+              <Photo post={post} {...this.props} index={index} />
+              <Comments startAddingComment={this.props.startAddingComment} comments={comments} post_id={id} />
+            </div>;
+          }
     }
 }
 
