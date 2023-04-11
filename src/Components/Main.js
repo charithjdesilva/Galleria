@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Title from "./Title";
 import "./styles/stylesheet.css";
 import Gallery from "./Gallery";
 import AddPhoto from "./AddPhoto";
