@@ -165,7 +165,7 @@ p{
 }
 
 /* comment section */
-.comment-button{
+.comment-button, .comment-add-button{
     color: rgb(138, 138, 138);
     background-color: #fff;
     font-family: 'Lato', sans-serif;
@@ -178,7 +178,12 @@ p{
     text-decoration: none;
 }
 
-.comment-button:hover{
+.comment-add-button{
+    border: 2px solid #8a8a8a;
+    margin-top: 1rem;
+}
+
+.comment-button:hover, .comment-add-button:hover{
     color: #000000;
     border: 2px solid #000000;
     background-color: #fff;
