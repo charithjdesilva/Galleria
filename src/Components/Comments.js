@@ -24,7 +24,7 @@ class Comments extends Component{
             }
             <form className="comment-form" onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="comment" name="comment" />
-                <input type="submit" value="Add" />
+                <input type="submit" className="comment-button" value="Add" />
             </form>
         </div>
     }
