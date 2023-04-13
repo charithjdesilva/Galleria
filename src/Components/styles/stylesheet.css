@@ -7,6 +7,7 @@ h1 {
   font-size: 5.5rem;
   font-weight: 700;
   margin-top: 1rem;
+  margin-bottom: 20px;
 }
 
 h1 a{
@@ -45,13 +46,14 @@ p{
 .button-container{
     display: flex;
     justify-content: center;
+    gap: 0.75rem;
 }
 
 .remove-button{
     color: rgb(218, 78, 44);
     background-color: #fff;
     font-family: 'Lato', sans-serif;
-    flex-basis: 40%;
+    flex-basis: 50%;
     line-height: 1.2rem;
     border: 2px solid #ff8787;
     padding: 5px;
@@ -66,7 +68,7 @@ p{
 }
 
 .addIcon{
-    margin: 20px auto;
+    margin: 0 auto 20px;
     display: block;
     padding: 40px;
     background: url("../../images/add.svg") center no-repeat;
@@ -113,6 +115,15 @@ p{
 }
 
 /* Single Post */
+.single-photo > .figure-container{
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    flex-basis: calc(100% - 0.45rem);
+    padding: 1.2rem 1.2rem 1.2rem 1.2rem; 
+    flex-grow: 1;
+    margin: 0 1.2rem auto 1.2rem;
+}
+
 .figure .single-photo {
     flex-basis: calc(33.333% - 4rem);
     flex-grow: 1;
@@ -154,6 +165,31 @@ p{
 }
 
 /* comment section */
+.comment-button, .comment-add-button{
+    color: rgb(138, 138, 138);
+    background-color: #fff;
+    font-family: 'Lato', sans-serif;
+    flex-basis: 50%;
+    line-height: 1.2rem;
+    border: 2px solid rgb(138, 138, 138);
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.comment-add-button{
+    color: #000000;
+    border: 2px solid #8a8a8a;
+    margin-top: 1rem;
+}
+
+.comment-button:hover, .comment-add-button:hover{
+    color: #000000;
+    border: 2px solid #000000;
+    background-color: #fff;
+}
+
 .comment{
     width: 100%
 }

@@ -22,7 +22,7 @@ class AddPhoto extends Component{
 
         // run only if link and description are not null
         if(imgLink && imgDescription){
-            this.props.addPost(post);
+            this.props.startAddingPost(post);
             this.props.navigate('/');
         }
     }

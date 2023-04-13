@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { createRoot } from 'react-dom/client';
 // import Main from "./Components/Main";
 import { BrowserRouter } from "react-router-dom";
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
 import rootReducer from "./redux/reducer.js";   // root reducer defines how data is going to updated in redux store
 import { Provider } from "react-redux";
 import App from "./Components/App";
+import thunk from "redux-thunk";
+import {database} from "./database/config";
 
 // root reducer is combination of many reducers which are used by components to update the state of the store
 const store = configureStore({
@@ -14,7 +16,7 @@ const store = configureStore({
         immutableCheck: false,
         serializableCheck: false,
    })
-},window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+},window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),applyMiddleware(thunk));
 
 const root = createRoot(document.getElementById('root'));
 
